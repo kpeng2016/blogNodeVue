@@ -5,7 +5,7 @@
         <div class="login-bg"></div>
         <div class="login-main">
           <h2 class="login-left-title">
-            欢迎使用
+            欢迎使用ADMIN
             <br />
             {{title}}
           </h2>
@@ -103,7 +103,7 @@ export default {
       const vm = this;
       try {
         const { c_name, c_password } = vm.loginForm;
-        await vm.$axios.post("adminApi/login", {
+        await vm.$axios.post("/admin/login", {
           c_name,
           c_password: md5(c_password),
           skipAuth: true

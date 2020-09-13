@@ -7,15 +7,17 @@ http://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb30
 var config = require('config-lite');
 var Sequelize = require('sequelize');
 
+console.log('=== mysql.js config === ', config);
+
 var Mysql = new Sequelize(config.mysql.database, config.mysql.user, config.mysql.password, {
-	host: config.mysql.host, //数据库服务器ip
-	dialect: 'mysql', //数据库使用mysql
-	port: 3306, //数据库服务器端口
-	pool: {
-		max: 5,
-		min: 0,
-		idle: 10000
-	},
+  host: config.mysql.host, // 数据库服务器ip
+  dialect: 'mysql', // 数据库使用mysql
+  port: 3306, // 数据库服务器端口
+  pool: {
+    max: 5,
+    min: 0,
+    idle: 10000
+  }
 });
 
 module.exports = Mysql;

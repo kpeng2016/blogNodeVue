@@ -1,4 +1,8 @@
 {
 	"success": "成功",
-	"regSuccess": "注册成功"
+	"regSuccess": "注册成功",
+	"requestApiError": "requestApiError",
+	"userNameOrPwdNull": "userNameOrPwdNull",
+	"adminUserHadReg": "adminUserHadReg",
+	"adminUserNotExist": "adminUserNotExist"
 }

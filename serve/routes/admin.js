@@ -4,44 +4,47 @@
  * 2016-12-22 17:45:53
  */
 var express = require('express');
+
 var router = express.Router();
 
 var adminDao = require('../controllers/admin');
-var checkAdminToken = require('../middlewares/check').checkAdminToken; //检验管理员token
+var { checkAdminToken } = require('../middlewares/check'); // 检验管理员token
 
 /**
  * 登录
  */
-router.post('/login', function(req, res, next) {
-	adminDao.login(req, res, next);
+router.post('/login', (req, res, next) => {
+  console.log('login now!!!');
+  adminDao.login(req, res, next);
 });
 
 /**
  * 登出
  */
-router.get('/logout', checkAdminToken, function(req, res, next) {
-	adminDao.logout(req, res, next);
+router.get('/logout', checkAdminToken, (req, res, next) => {
+  adminDao.logout(req, res, next);
 });
 
 /**
  * 更新token 防止token过期
  */
-router.put('/token', function(req, res, next) {
-	adminDao.updateAccessToken(req, res, next);
+router.put('/token', (req, res, next) => {
+  adminDao.updateAccessToken(req, res, next);
 });
 
 /**
  * 新增管理员
  */
-router.post('/create',checkAdminToken, function(req, res, next) {
-	adminDao.createAdminUser(req, res, next);
+router.post('/create', (req, res, next) => {
+  console.log('=== create now!!! ===');
+  adminDao.createAdminUser(req, res, next);
 });
 
 /**
  * 管理员列表
  */
-router.get('/list', checkAdminToken, function(req, res, next) {
-	adminDao.getAdminUserList(req, res, next);
+router.get('/list', checkAdminToken, (req, res, next) => {
+  adminDao.getAdminUserList(req, res, next);
 });
 
 module.exports = router;
